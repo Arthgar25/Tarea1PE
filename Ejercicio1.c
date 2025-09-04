@@ -8,6 +8,7 @@ char obtenerPaloAleatorio();
 int generarValorAleatorio();
 void mostrarCarta(char palo, int valor);
 int compararValor(int valor1, int valor2);
+int compararPalo(char palo1, char palo2);
 
 int main(int argc, char const *argv[])
 {
@@ -26,7 +27,7 @@ int main(int argc, char const *argv[])
     printf("Valor aleatorio: %d\n", elValor);
 
     mostrarCarta(elPalo, elValor);
-
+    printf("Cartas a comparar: \n");
     mostrarCarta(paloComparar1, valorComparar1);
     mostrarCarta(paloComparar2, valorComparar2);
 
@@ -36,7 +37,15 @@ int main(int argc, char const *argv[])
     } else{
         iguales[10] = "false";
     }
-    printf("valor igual: %s", iguales[10]);
+    printf("valor igual: %s\n", iguales[10]);
+
+    comparar = compararPalo(paloComparar1, paloComparar2);
+    if(comparar == 1){
+        iguales[10] = "true";
+    } else{
+        iguales[10] = "false";
+    }
+    printf("palo igual: %s\n", iguales[10]);
 
     return 0;
 }
@@ -118,6 +127,16 @@ void mostrarCarta(char palo, int valor){
 int compararValor(int valor1, int valor2){
     int mismoValor;
     if(valor1 == valor2){
+        mismoValor = 1;
+    } else{
+        mismoValor = 0;
+    }
+    return mismoValor;
+}
+
+int compararPalo(char palo1, char palo2){
+    int mismoValor;
+    if(palo1 == palo2){
         mismoValor = 1;
     } else{
         mismoValor = 0;
