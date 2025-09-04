@@ -4,6 +4,7 @@
 
 char obtenerPaloAleatorio();
 int generarValorAleatorio();
+void mostrarCarta(char palo, int valor);
 
 int main(int argc, char const *argv[])
 {
@@ -12,6 +13,7 @@ int main(int argc, char const *argv[])
     printf("Palo aleatorio: %c\n", elPalo);
     int elValor = generarValorAleatorio();  // Segundo ejercicio: Generar un valor aleatorio
     printf("Valor aleatorio: %d\n", elValor);
+    mostrarCarta(elPalo, elValor);
     return 0;
 }
 
@@ -47,4 +49,47 @@ int generarValorAleatorio(){
     int valor = 1;
     valor = (rand()%13+1);
     return valor;
+}
+
+void mostrarCarta(char palo, int valor){
+    char valorLetra;
+    char *paloString[10];
+    switch (palo){
+        case 'P':
+            paloString[10] = "Pica";
+            break;
+        case 'T':
+            paloString[10] = "Trebol";
+            break;
+        case 'D':
+            paloString[10] = "Diamante";
+            break;
+        case 'C':
+            paloString[10] = "Corazones";
+            break;
+        default:
+            printf("Letra diferente de [P,T,D,C]");
+            break;
+    }
+    switch (valor){
+        case 1:
+            valorLetra = 'A';
+            printf("La carta es: %c de %s\n", valorLetra, paloString[10]);
+            break;
+        case 11:
+            valorLetra = 'J';
+            printf("La carta es: %c de %s\n", valorLetra, paloString[10]);
+            break;
+        case 12:
+            valorLetra = 'Q';
+            printf("La carta es: %c de %s\n", valorLetra, paloString[10]);
+            break;
+        case 13:
+            valorLetra = 'K';
+            printf("La carta es: %c de %s\n", valorLetra, paloString[10]);
+            break;
+        default:
+            printf("La carta es: %d de %s\n", valor, paloString[10]);
+            break;
+    }
 }
