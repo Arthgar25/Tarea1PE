@@ -7,15 +7,17 @@
 char obtenerPaloAleatorio();
 int generarValorAleatorio();
 void mostrarCarta(char palo, int valor);
-bool compararValor(char palo1, char palo2, int valor1, int valor2);
+int compararValor(int valor1, int valor2);
 
 int main(int argc, char const *argv[])
 {
     srand(time(0));
+    char *iguales[10];
     char paloComparar1 = obtenerPaloAleatorio();
     char paloComparar2 = obtenerPaloAleatorio();
     int valorComparar1 = generarValorAleatorio();
     int valorComparar2 = generarValorAleatorio();
+    int comparar;
 
     system("cls");
     char elPalo = obtenerPaloAleatorio();   // Primer ejercicio: Generar un palo aleatorio
@@ -28,7 +30,13 @@ int main(int argc, char const *argv[])
     mostrarCarta(paloComparar1, valorComparar1);
     mostrarCarta(paloComparar2, valorComparar2);
 
-    compararValor(paloComparar1, paloComparar2, valorComparar1, valorComparar2);
+    comparar = compararValor(valorComparar1, valorComparar2);
+    if(comparar == 1){
+        iguales[10] = "true";
+    } else{
+        iguales[10] = "false";
+    }
+    printf("valor igual: %s", iguales[10]);
 
     return 0;
 }
@@ -107,6 +115,12 @@ void mostrarCarta(char palo, int valor){
     }
 }
 
-bool compararValor(char palo1, char palo2, int valor1, int valor2){
-
+int compararValor(int valor1, int valor2){
+    int mismoValor;
+    if(valor1 == valor2){
+        mismoValor = 1;
+    } else{
+        mismoValor = 0;
+    }
+    return mismoValor;
 }
