@@ -9,6 +9,8 @@ int generarValorAleatorio();
 void mostrarCarta(char palo, int valor);
 int compararValor(int valor1, int valor2);
 int compararPalo(char palo1, char palo2);
+int suma(int valor1, int valor2, int valor3);
+int sumaConOnce(int valor1, int valor2, int valor3);
 
 int main(int argc, char const *argv[])
 {
@@ -18,6 +20,7 @@ int main(int argc, char const *argv[])
     char paloComparar2 = obtenerPaloAleatorio();
     int valorComparar1 = generarValorAleatorio();
     int valorComparar2 = generarValorAleatorio();
+    int valorComparar3 = generarValorAleatorio();
     int comparar;
 
     system("cls");
@@ -46,6 +49,8 @@ int main(int argc, char const *argv[])
         iguales[10] = "false";
     }
     printf("palo igual: %s\n", iguales[10]);
+
+    printf("suma: %d", suma(valorComparar1, valorComparar2, valorComparar3));
 
     return 0;
 }
@@ -142,4 +147,16 @@ int compararPalo(char palo1, char palo2){
         mismoValor = 0;
     }
     return mismoValor;
+}
+
+int suma(int valor1, int valor2, int valor3){
+    int total;
+    total = valor1 + valor2 + valor3;
+    return total;
+}
+
+int sumaConOnce(int valor1, int valor2, int valor3){
+    int total;
+    total = valor1 + valor2 + valor3;
+    return total;
 }
