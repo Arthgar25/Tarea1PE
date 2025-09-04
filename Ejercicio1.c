@@ -1,24 +1,39 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <stdbool.h>
+#include <unistd.h>
 
 char obtenerPaloAleatorio();
 int generarValorAleatorio();
 void mostrarCarta(char palo, int valor);
+bool compararValor(char palo1, char palo2, int valor1, int valor2);
 
 int main(int argc, char const *argv[])
 {
+    srand(time(0));
+    char paloComparar1 = obtenerPaloAleatorio();
+    char paloComparar2 = obtenerPaloAleatorio();
+    int valorComparar1 = generarValorAleatorio();
+    int valorComparar2 = generarValorAleatorio();
+
     system("cls");
     char elPalo = obtenerPaloAleatorio();   // Primer ejercicio: Generar un palo aleatorio
     printf("Palo aleatorio: %c\n", elPalo);
     int elValor = generarValorAleatorio();  // Segundo ejercicio: Generar un valor aleatorio
     printf("Valor aleatorio: %d\n", elValor);
+
     mostrarCarta(elPalo, elValor);
+
+    mostrarCarta(paloComparar1, valorComparar1);
+    mostrarCarta(paloComparar2, valorComparar2);
+
+    compararValor(paloComparar1, paloComparar2, valorComparar1, valorComparar2);
+
     return 0;
 }
 
 char obtenerPaloAleatorio(){
-    srand(time(NULL));
     int valor = 1;
     char palo;
     valor = (rand()%4+1);
@@ -40,12 +55,10 @@ char obtenerPaloAleatorio(){
             printf("numero fuera de [1,4]");
             break;
     }
-        
     return palo;
 }
 
 int generarValorAleatorio(){
-    srand(time(0));
     int valor = 1;
     valor = (rand()%13+1);
     return valor;
@@ -92,4 +105,8 @@ void mostrarCarta(char palo, int valor){
             printf("La carta es: %d de %s\n", valor, paloString[10]);
             break;
     }
+}
+
+bool compararValor(char palo1, char palo2, int valor1, int valor2){
+
 }
