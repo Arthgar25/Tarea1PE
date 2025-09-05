@@ -157,6 +157,17 @@ int suma(int valor1, int valor2, int valor3){
 
 int sumaConOnce(int valor1, int valor2, int valor3){
     int total;
+    
+    if(valor1 == 1){
+        valor1 = 11;
+    }
+    if(valor2 == 1){
+        valor2 = 11;
+    }
+    if(valor3 == 1){
+        valor3 = 11;
+    }
+
     total = valor1 + valor2 + valor3;
     return total;
 }
